@@ -1,0 +1,59 @@
+/* Estilos del header */
+.header {
+    background-image: url('/obras/pato4.jpg'); /* Reemplaza con la imagen de tu elección */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 0px 0;
+    background-color: #333;
+    
+    top: 0;
+    z-index: 50;
+}
+
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.header-title {
+    font-size: 30px;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background: rgb(253, 253, 253);
+    margin: 0;
+    padding: 0;
+    display: grid;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos el 100% de la altura de la ventana */
+    grid-template-rows: auto 1fr auto;
+}
+
+
+/* Contenido Zona */
+.Zona {
+    max-width: 100%;
+    margin: 2% auto;
+    padding: 5%;
+    background-color: #ffffff;
+    border-radius: 5%;
+    text-align: center;
+    color: #000000;
+ 
+    width: auto; /* El ancho que desees */
+    text-align: center; /* Para centrar el contenido dentro del section */
+  
+}
+.Zona textarea{
+    
+    width: auto;
+    
+}

@@ -1,0 +1,113 @@
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background: rgb(253, 253, 253);
+    margin: 0;
+    padding: 0;
+    display: grid;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos el 100% de la altura de la ventana */
+    grid-template-rows: auto 1fr auto;
+}
+
+
+/* Contenido Zona */
+.Zona {
+    max-width: 50%;
+    margin: 2% auto;
+    padding: 5%;
+    background-color: #000000;
+    border-radius: 5%;
+    text-align: center;
+    color: #ffffff;
+ 
+    width: auto; /* El ancho que desees */
+    text-align: center; /* Para centrar el contenido dentro del section */
+  
+}
+.Zona1 h2 {
+    font-size: 32px;
+    margin: 0;
+    font-family: Questrial ;
+    
+}
+.Zona1 p  {
+    font-size: 20px;
+    margin: 20px 0;
+}
+/*.Zona2 {
+    
+ 
+}
+/* Estilo para el botón estilizado */
+.boton-estilizado {
+    background-color: #ffffff;
+    color: #000000;
+    border:#ffffff;
+    border-radius: 3px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+}
+
+.boton-estilizado:hover {
+    background-color: #333; /* Cambia el color de fondo al pasar el ratón */
+}
+li {
+    margin-top: 3%;
+
+}
+/* Estilos para el formulario de registro */
+.registro {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.registro h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.registro .input-group {
+    margin-bottom: 20px;
+    text-align: left; /* Alinea el texto a la izquierda en los campos de entrada */
+}
+
+.registro label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+}
+
+.zonaRegistro .input-style {
+    
+    height: auto;
+    margin-top: 4%;
+    border: 1px solid #000000;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.registro .boton-estilizado {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 24px;
+    transition: background-color 0.3s;
+    display: inline-block; /* Alinea el botón horizontalmente */
+}
+
+.registro-form .boton-estilizado:hover {
+    background-color: #3a3a3a;
+}
