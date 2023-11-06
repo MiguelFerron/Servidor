@@ -1,7 +1,7 @@
 <?php
 $host = 'localhost';
 $usuario = 'root';
-$contrasena = '';
+$contrasena = '2606';
 $base_de_datos = 'dwes';
 
 // Intenta establecer la conexión a la base de datos
