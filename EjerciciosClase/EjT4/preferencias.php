@@ -53,7 +53,7 @@ session_start();
                     </select>
                 </div>
 
-                <div class "campo">
+                <div class ="campo">
                     <label class="etiqueta" for="zona_horaria">Zona horaria:</label>
                     <select name="zona_horaria" id="zona_horaria">
                         <option value="seleccionar" <?php if ($zona_horaria == "seleccionar") echo "selected"; ?>>Seleccionar</option>
