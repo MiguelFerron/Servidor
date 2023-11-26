@@ -29,49 +29,53 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['cod'])) {
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tarea: Edición de un producto</title>
-    <link rel="stylesheet" href="ejercicio.css">
+    <link rel="stylesheet" href="tu_archivo_css.css">
 </head>
 <body>
-<header id="sticky-header" class="header">
+    <header id="encabezado">
         <div class="header-container">
-            <h1 class="header-title"> Tarea: Edición de un producto</h1>
+            <h1 class="header-title">Tarea: Edición de un producto</h1>
             <nav class="header-nav">
-
+                <!-- Puedes agregar elementos de navegación si es necesario -->
             </nav>
         </div>
     </header>
-    <section class="Zona">
+    <section id="contenido" class="Zona">
         <section class="Zona1">
-   
-    <form method="post" action="actualizar.php">
-        <label for="nombre_corto">Nombre Corto:</label>
-        <br>
-        <input type="text" name="nombre_corto" value="<?php echo $producto['nombre_corto']; ?>">
-        <br>
-        <br>
-        <label for="nombre">Nombre:</label>
-        <br>
-        <input type="text" name="nombre" value="<?php echo $producto['nombre']; ?>">
-        <br>
-        <br>
-        <label for="descripcion">Descripción:</label>
-        <br>
-        <textarea name="descripcion" rows="15" cols="50"><?php echo $producto['descripcion']; ?></textarea>
-        <br>
-        <br>
-        <label for="PVP">PVP:</label>
-        <br>
-        <input type="text" name="PVP" value="<?php echo $producto['PVP']; ?>">
-        <input type="hidden" name="cod" value="<?php echo $cod; ?>">
-        <br>
-        <br>
-        <input type="submit" value="Actualizar">
-        <a href="listado.php">Cancelar</a>
-    </form>
-</section>
-</section>
+            <form method="post" action="actualizar.php">
+                <label for="nombre_corto">Nombre Corto:</label>
+                <br>
+                <input type="text" name="nombre_corto" value="<?php echo $producto['nombre_corto']; ?>">
+                <br>
+                <br>
+                <label for="nombre">Nombre:</label>
+                <br>
+                <input type="text" name="nombre" value="<?php echo $producto['nombre']; ?>">
+                <br>
+                <br>
+                <label for="descripcion">Descripción:</label>
+                <br>
+                <textarea name="descripcion" rows="15" cols="50"><?php echo $producto['descripcion']; ?></textarea>
+                <br>
+                <br>
+                <label for="PVP">PVP:</label>
+                <br>
+                <input type="text" name="PVP" value="<?php echo $producto['PVP']; ?>">
+                <input type="hidden" name="cod" value="<?php echo $cod; ?>">
+                <br>
+                <br>
+                <input type="submit" value="Actualizar">
+                <a href="listado.php">Cancelar</a>
+            </form>
+        </section>
+    </section>
+    <footer id="pie">
+        <!-- Puedes agregar contenido adicional en el pie de página si es necesario -->
+    </footer>
 </body>
 </html>
