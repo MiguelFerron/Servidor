@@ -1,4 +1,5 @@
 <?php
+// Configuración de la conexión a la base de datos
 $host = 'localhost';
 $usuario = 'dwes';
 $contrasena = 'abc123';
@@ -20,6 +21,7 @@ if (isset($_POST['producto_id'])) {
         $stmtProducto->execute();
         $producto = $stmtProducto->fetch(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
+        // Manejo de errores en caso de fallo en la conexión
         die("Error de conexión a la base de datos: " . $e->getMessage());
     }
 } else {
@@ -35,45 +37,49 @@ if (isset($_POST['producto_id'])) {
     <meta charset="UTF-8">
     <title>Editar Producto</title>
     <link href="dwes.css" rel="stylesheet" type="text/css">
-
 </head>
 <body>
-<body>
+
+<!-- Encabezado de la página -->
 <div id="encabezado">
-        <h1>Tarea: Edición de un producto</h1>
-        
-        
-        </div>
-        <div id="contenido">
-        <h2>Editar Producto</h2>
+    <h1>Tarea: Edición de un producto</h1>
+</div>
 
-        <form action="actualizar.php" method="post">
-            <input type="hidden" name="producto_id" value="<?php echo $producto['cod']; ?>">
+<!-- Contenido principal de la página -->
+<div id="contenido">
+    <h2>Editar Producto</h2>
 
-            <label for="nombre_corto">Nombre Corto:</label> 
-            <input type="text" name="nombre_corto" value="<?php echo $producto['nombre_corto']; ?>"><br>
+    <!-- Formulario para actualizar el producto -->
+    <form action="actualizar.php" method="post">
+        <!-- Campo oculto para enviar el ID del producto a actualizar -->
+        <input type="hidden" name="producto_id" value="<?php echo $producto['cod']; ?>">
 
-            <br>
+        <!-- Campos para editar la información del producto -->
+        <label for="nombre_corto">Nombre Corto:</label>
+        <input type="text" name="nombre_corto" value="<?php echo $producto['nombre_corto']; ?>"><br>
 
-            <label for="nombre">Nombre:</label> <br> <br>
-            <input type="text" name="nombre" value="<?php echo $producto['nombre']; ?>"><br>
+        <br>
 
-            <br>
+        <label for="nombre">Nombre:</label> <br> <br>
+        <input type="text" name="nombre" value="<?php echo $producto['nombre']; ?>"><br>
 
-            <label for="descripcion">Descripción:</label> <br> <br>
-            <textarea name="descripcion" rows="10"><?php echo $producto['descripcion']; ?></textarea><br>
+        <br>
 
-            <br>
+        <label for="descripcion">Descripción:</label> <br> <br>
+        <textarea name="descripcion" rows="10"><?php echo $producto['descripcion']; ?></textarea><br>
 
-            <label for="pvp">PVP:</label> <br> <br>
-            <input type="text" name="pvp" value="<?php echo $producto['PVP']; ?>"><br>
+        <br>
 
-            <br>
+        <label for="pvp">PVP:</label> <br> <br>
+        <input type="text" name="pvp" value="<?php echo $producto['PVP']; ?>"><br>
 
-            <button type="submit" name="actualizar">Actualizar</button>
-            <button type="button" onclick="history.back()">Cancelar</button>
-        </form>
-    </div>
+        <br>
+
+        <!-- Botones para actualizar o cancelar la edición -->
+        <button type="submit" name="actualizar">Actualizar</button>
+        <button type="button" onclick="history.back()">Cancelar</button>
+    </form>
+</div>
 
 </body>
 </html>

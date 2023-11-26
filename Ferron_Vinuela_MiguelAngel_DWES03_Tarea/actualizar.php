@@ -7,10 +7,12 @@
 </head>
 <body>
 
+    <!-- Contenido principal de la página -->
     <div id="contenido">
         <h2>Actualizar Producto</h2>
 
         <?php
+        // Configuración de la base de datos
         $host = 'localhost';
         $usuario = 'dwes';
         $contrasena = 'abc123';
@@ -37,14 +39,17 @@
                     $stmt = $conexion->prepare($query);
                     $stmt->execute([$nombreCorto, $nombre, $descripcion, $pvp, $productoId]);
                 } catch (PDOException $e) {
+                    // Manejo de errores en caso de fallo en la conexión
                     die("Error de conexión a la base de datos: " . $e->getMessage());
                 }
 
+                // Mensaje de éxito
                 echo "<p>¡Producto actualizado correctamente!</p>";
             }
         }
         ?>
 
+        <!-- Formulario de retorno al listado -->
         <form action="listado.php" method="post">
             <button type="submit" name="volver">Volver al Listado</button>
         </form>
