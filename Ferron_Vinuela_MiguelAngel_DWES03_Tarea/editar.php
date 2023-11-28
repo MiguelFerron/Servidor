@@ -43,7 +43,7 @@ if (isset($_POST['producto_id'])) {
 <!-- Encabezado de la página -->
 <div id="encabezado">
     <h1>Tarea: Edición de un producto</h1>
-</div>
+
 
 <!-- Contenido principal de la página -->
 <div id="contenido">

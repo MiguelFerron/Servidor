@@ -4,6 +4,9 @@ $usuario = 'dwes';
 $contrasena = 'abc123';
 $base_de_datos = 'dwes';
 
+$selectedFamily = "";  // Inicializa la variable para la familia seleccionada
+$selectedFamilyName = "";  // Inicializa la variable para el nombre de la familia
+
 try {
     // Intenta establecer la conexión a la base de datos con PDO
     $conexion = new PDO("mysql:host=$host;dbname=$base_de_datos", $usuario, $contrasena);
@@ -28,6 +31,15 @@ try {
 
         $productos = $stmtProductos->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    // Busca el nombre de la familia seleccionada
+    foreach ($familias as $familiaItem) {
+        if ($familiaItem['cod'] == $selectedFamily) {
+            $selectedFamilyName = $familiaItem['nombre'];
+            break;
+        }
+    }
+
 } catch (PDOException $e) {
     // Excepción en caso de fallo en la conexión o consulta
     die("Error en la base de datos: " . $e->getMessage());
@@ -50,9 +62,12 @@ try {
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <label for="familia">Familia:</label>
             <select name="familia" id="familia">
-                <?php foreach ($familias as $familia) : ?>
+                <!-- Opción por defecto -->
+                <option value="" disabled selected>Selecciona una familia</option>
+                
+                <?php foreach ($familias as $familiaItem) : ?>
                     <!-- Opciones de familia generadas dinámicamente -->
-                    <option value="<?php echo $familia['cod']; ?>"><?php echo $familia['nombre']; ?></option>
+                    <option value="<?php echo $familiaItem['cod']; ?>"><?php echo $familiaItem['nombre']; ?></option>
                 <?php endforeach; ?>
             </select>
             <button type="submit" name="mostrar">Mostrar</button>
@@ -61,7 +76,10 @@ try {
 
     <!-- Contenido principal de la página -->
     <div id="contenido">
-        <?php if (isset($productos) && count($productos) > 0) : ?>
+        <!-- Mostrar la familia seleccionada -->
+        <h2>Familia seleccionada: <?php echo empty($selectedFamilyName) ? 'Seleccione una familia' : $selectedFamilyName; ?></h2>
+
+        <?php if (!empty($selectedFamily) && isset($productos) && count($productos) > 0) : ?>
             <!-- Lista de productos si hay productos disponibles -->
             <h2>Listado de Productos</h2> 
             <?php foreach ($productos as $producto) : ?>
@@ -75,7 +93,10 @@ try {
                 </div>
                 <br> 
             <?php endforeach; ?>
-        <?php elseif (isset($_POST['mostrar'])) : ?>
+        <?php elseif (empty($selectedFamily) && isset($_POST['mostrar'])) : ?>
+            <!-- Mensaje si no se ha seleccionado ninguna familia -->
+            <p>Seleccione una familia</p>
+        <?php elseif (!empty($selectedFamily) && isset($_POST['mostrar'])) : ?>
             <!-- Mensaje si no hay productos disponibles para la familia seleccionada -->
             <p>No hay productos disponibles para la familia seleccionada.</p>
         <?php endif; ?>

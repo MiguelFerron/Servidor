@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Actualizar Producto</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dwes.css">
 </head>
 <body>
 
     <!-- Contenido principal de la página -->
-    <div id="contenido">
-        <h2>Actualizar Producto</h2>
+    <div id="encabezado">
+    <h1>Tarea: Actualizar contenido</h1>
+    </div>
 
         <?php
         // Configuración de la base de datos
@@ -44,7 +45,7 @@
                 }
 
                 // Mensaje de éxito
-                echo "<p>¡Producto actualizado correctamente!</p>";
+                echo "<p>Se han actualizado los datos</p>";
             }
         }
         ?>
@@ -54,6 +55,6 @@
             <button type="submit" name="volver">Volver al Listado</button>
         </form>
     </div>
-
+    
 </body>
 </html>
