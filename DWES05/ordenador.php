@@ -38,4 +38,3 @@ if (isset($_GET['codigo'])) {
 // Mostramos la plantilla
 $smarty->display('ordenador.tpl');     
 ?>
-html
