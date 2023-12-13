@@ -6,7 +6,7 @@ class DB {
         $opc = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
         $host = "mysql:host=localhost;dbname=tarea5";
         $usuario = 'dwes';
-        $contrasena = 'abc123';
+        $contrasena = 'abc123.';
         
         $dwes = new PDO($host, $usuario, $contrasena, $opc);
         $resultado = null;
