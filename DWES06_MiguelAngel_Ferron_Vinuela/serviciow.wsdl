@@ -1,7 +1,12 @@
 <?xml version="1.0"?>
-<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap-env="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://127.0.0.1/dwes/tarea6" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://127.0.0.1/dwes/tarea6">
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+xmlns:soap-enc="http://schemas.xmlsoap.org/soap/encoding/" 
+xmlns:soap-env="http://schemas.xmlsoap.org/wsdl/soap/" 
+xmlns:tns="http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela/" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela/">
     <wsdl:types>
-        <xsd:schema targetNamespace="http://127.0.0.1/dwes/tarea6"/>
+        <xsd:schema targetNamespace="http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela/"/>
     </wsdl:types>
     <wsdl:message name="getPvpRequest">
         <wsdl:part name="cod" type="xsd:string"/>
@@ -51,7 +56,7 @@
     <wsdl:binding name="FuncionesBinding" type="tns:FuncionesPortType">
         <soap-env:binding xmlns="http://schemas.xmlsoap.org/wsdl/soap/" style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="getPvp">
-            <soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://127.0.0.1/dwes/tarea6/servicio.php?method=getPvp" style="rpc"/>
+            <soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela/servicio.php?method=getPvp" style="rpc"/>
             <wsdl:input>
                 <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
             </wsdl:input>
@@ -60,7 +65,7 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="getStock">
-            <soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://127.0.0.1/dwes/tarea6/servicio.php?method=getStock" style="rpc"/>
+            <soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela/servicio.php?method=getStock" style="rpc"/>
             <wsdl:input>
                 <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
             </wsdl:input>
@@ -69,7 +74,7 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="getFamilias">
-            <soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://127.0.0.1/dwes/tarea6/servicio.php?method=getFamilias" style="rpc"/>
+            <soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela/servicio.php?method=getFamilias" style="rpc"/>
             <wsdl:input>
                 <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
             </wsdl:input>
@@ -78,7 +83,7 @@
             </wsdl:output>
         </wsdl:operation>
         <wsdl:operation name="getProductosFamilia">
-            <soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://127.0.0.1/dwes/tarea6/servicio.php?method=getProductosFamilia" style="rpc"/>
+            <soap-env:operation xmlns="http://schemas.xmlsoap.org/wsdl/soap/" soapAction="http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela/servicio.php?method=getProductosFamilia" style="rpc"/>
             <wsdl:input>
                 <soap-env:body xmlns="http://schemas.xmlsoap.org/wsdl/soap/" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
             </wsdl:input>
@@ -89,14 +94,13 @@
     </wsdl:binding>
     <wsdl:service name="Funciones">
         <wsdl:documentation>
-			Class Funciones 
-			Curso: Desarrollo Web de Entorno Servidor 
-			Tema 6: SERVICIOS WEB 
-			Ejercicio: Funciones.php, fichero comentado para la creación automática de documento WSDL
-			
-		</wsdl:documentation>
+            Class Funciones 
+            Curso: Desarrollo Web de Entorno Servidor 
+            Tema 6: SERVICIOS WEB 
+            Ejercicio: Funciones.php, fichero comentado para la creación automática de documento WSDL
+        </wsdl:documentation>
         <wsdl:port name="FuncionesPort" binding="tns:FuncionesBinding">
-            <soap-env:address location="http://127.0.0.1/dwes/tarea6/servicio.php"/>
+            <soap-env:address location="http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela/servicio.php"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>
