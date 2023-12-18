@@ -1,4 +1,4 @@
-    <?php
+<?php
     // Permitimos el uso de acentos y caracteres especiales
     header('Content-Type: text/html; charset=UTF-8');
     // creamos el objeto de cliente SOAP con nuestro fichero
@@ -26,6 +26,6 @@
     echo "<table>";
     foreach($codigosF as $cod)
       echo "<tr><td>Código</td><td><b>".$cod."</b></td></tr>";   
-    echo "</table>"
+    echo "</table>";
       
   ?>
