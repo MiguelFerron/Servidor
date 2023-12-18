@@ -6,9 +6,9 @@
  * Clase para el desarrollo web de entorno servidor. Tema 6: servicios web. 
  * Ejercicio: Documentación para generación automática de documento WSDL.
  * 
- * @author {Tu Nombre}
- * @copyright {Año} {Tu Nombre}
- * @package {Nombre del Paquete}
+ * @author Miguel Angel Ferrón VIñuela
+ * @copyright 
+ * @package 
  */
 class Funciones extends SoapClient {
 
