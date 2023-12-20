@@ -7,11 +7,15 @@
  * Ejercicio: Documentación para generación automática de documento WSDL.
  * 
  * @author Miguel Angel Ferrón VIñuela
- * @copyright 
- * @package 
  */
 class Funciones extends SoapClient {
 
+  /**
+   * Constructor de la clase Funciones.
+   *
+   * @param string $wsdl
+   * @param array $options
+   */
   public function __construct($wsdl = "http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela//serviciow.wsdl", $options = array()) {
     parent::__construct($wsdl, $options);
   } 
@@ -23,14 +27,19 @@ class Funciones extends SoapClient {
    * @return float
    */
   public function getPvp($cod) {
-    return $this->__soapCall('getPvp', array(
-            new SoapParam($cod, 'cod')
-      ),
-      array(
-            'uri' => 'http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela/',
-            'soapaction' => ''
-           )
+    try {
+      return $this->__soapCall(
+        'getPvp',
+        array(new SoapParam($cod, 'cod')),
+        array(
+          'uri' => 'http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela/',
+          'soapaction' => ''
+        )
       );
+    } catch (SoapFault $e) {
+      // Manejar el error de llamada SOAP, si es necesario
+      return -1; // Puedes devolver un valor específico para indicar un error
+    }
   }
 
   /**
@@ -41,15 +50,22 @@ class Funciones extends SoapClient {
    * @return int
    */
   public function getStock($producto, $tienda) {
-    return $this->__soapCall('getStock', array(
-            new SoapParam($producto, 'producto'),
-            new SoapParam($tienda, 'tienda')
-      ),
-      array(
-            'uri' => 'http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela/',
-            'soapaction' => ''
-           )
+    try {
+      return $this->__soapCall(
+        'getStock',
+        array(
+          new SoapParam($producto, 'producto'),
+          new SoapParam($tienda, 'tienda')
+        ),
+        array(
+          'uri' => 'http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela/',
+          'soapaction' => ''
+        )
       );
+    } catch (SoapFault $e) {
+      // Manejar el error de llamada SOAP, si es necesario
+      return -1;
+    }
   }
 
   /**
@@ -58,12 +74,19 @@ class Funciones extends SoapClient {
    * @return Array
    */
   public function getFamilias() {
-    return $this->__soapCall('getFamilias', array(),
-      array(
-            'uri' => 'http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela/',
-            'soapaction' => ''
-           )
+    try {
+      return $this->__soapCall(
+        'getFamilias',
+        array(),
+        array(
+          'uri' => 'http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela/',
+          'soapaction' => ''
+        )
       );
+    } catch (SoapFault $e) {
+      // Manejar el error de llamada SOAP, si es necesario
+      return array("<span style='background:yellow'>ERROR: ".$e->getCode()."</span>", "<span style='color:red'>".$e->getMessage()."</span>");
+    }
   }
 
   /**
@@ -73,16 +96,20 @@ class Funciones extends SoapClient {
    * @return Array
    */
   public function getProductosFamilia($codFamilia) {
-    return $this->__soapCall('getProductosFamilia', array(
-            new SoapParam($codFamilia, 'codFamilia')
-      ),
-      array(
-            'uri' => 'http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela/',
-            'soapaction' => ''
-           )
+    try {
+      return $this->__soapCall(
+        'getProductosFamilia',
+        array(new SoapParam($codFamilia, 'codFamilia')),
+        array(
+          'uri' => 'http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela/',
+          'soapaction' => ''
+        )
       );
+    } catch (SoapFault $e) {
+      // Manejar el error de llamada SOAP, si es necesario
+      return array("<span style='background:yellow'>ERROR: ".$e->getCode()."</span>", "<span style='color:red'>".$e->getMessage()."</span>");
+    }
   }
-
 }
 
 ?>

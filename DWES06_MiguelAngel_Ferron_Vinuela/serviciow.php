@@ -1,7 +1,8 @@
 <?php
-    require_once 'Funcionesw.php';
-    
-    $server = new SoapServer(null, array('uri'=>''));
-    $server->setClass('Funciones');
-    $server->handle();
+    require_once 'Funciones.php';
+    require_once 'WSDLDocument.php';
+    header('Content-Type: text/xml');
+    $wsdl = new WSDLDocument('Funciones');
+    echo $wsdl->saveXML();
 ?>
+

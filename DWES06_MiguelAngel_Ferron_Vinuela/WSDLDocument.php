@@ -257,7 +257,8 @@ class WSDLDocument extends DOMDocument
         $oOutput->setAttribute('name', $oMethod->name . 'Response');
         $this->oDefinitions->appendChild($oOutput);
         // output part
-        $sType = (string) reset($this->getTagComment($sComment, 'return'));
+        $aTypeComment = $this->getTagComment($sComment, 'var');
+        $sType = reset($aTypeComment);        
         if ($sType != 'void' && $sType != '') {
             $oPart = $this->createElementNS(self::NS_WSDL, 'part');
             $oPart->setAttribute('name', $oMethod->name . 'Return');
@@ -535,4 +536,7 @@ class WSDLDocument extends DOMDocument
                 return 'tns';
         }
     }
+    
 }
+
+?>

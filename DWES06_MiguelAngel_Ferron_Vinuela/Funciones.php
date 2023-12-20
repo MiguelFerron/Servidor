@@ -3,11 +3,11 @@
 /**
 * Class Funciones
 * 
-* Curso: 		Desarrollo Web de Entorno Servidor
-* Tema 6: 		SERVICIOS WEB
-* Ejercicio: 	Funciones.php, fichero comentado para la creación 
-*             	automática de documento WSDL
-* @author: 	    Miguel Ángel Ferrón VIñuela
+* Curso: Desarrollo Web de Entorno Servidor
+* Tema 6: SERVICIOS WEB
+* Ejercicio: Funciones.php, fichero comentado para la creación 
+* automática de documento WSDL
+* @author: Miguel Ángel Ferrón VIñuela
 */
 class Funciones{
     /**
@@ -17,15 +17,15 @@ class Funciones{
      * @return float
      */
     public function getPvp($cod){
-		// Inicializamos las variables
+        // Inicializamos las variables
         $pvp = null;
-		// Capturamos posibles errores al leer de la base de datos
+        // Capturamos posibles errores al leer de la base de datos
         try{
             $dwes = new PDO("mysql:host=127.0.0.1;dbname=tarea6", "dwes", "abc123.");
             $dwes->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);   
         }catch (PDOException $e) {
             $pvp = -($e->getCode());
-			return $pvp;
+            return $pvp;
         }
         if (!isset($error)) {
             $sql = "SELECT PVP FROM producto WHERE cod='$cod'";
@@ -55,7 +55,7 @@ class Funciones{
         }
         catch (PDOException $e) {
             $stock = -($e->getCode());
-			return $stock;
+            return $stock;
         }
         if (!isset($error)) {
             $sql = "SELECT unidades FROM stock WHERE producto='$producto' AND tienda='$tienda'"; 
@@ -71,7 +71,7 @@ class Funciones{
     /**
      * Listar todas las familias de productos existentes
      * 
-     * @return Array
+     * @return array
      */
     public function getFamilias(){     
         $familias = array();
@@ -82,7 +82,7 @@ class Funciones{
         }catch (PDOException $e) {
             $familias[0] = "<span style='background:yellow'>ERROR: ".$e->getCode()."</span>";
             $familias[1] = "<span style='color:red'>".$e->getMessage()."</span>";
-			return $familias;
+            return $familias;
         }
         if (!isset($error)) {
             $sql = "SELECT cod FROM familia";
@@ -101,8 +101,8 @@ class Funciones{
     /**
      * Listar todos los productos existentes de la familia que se le indique
      * 
-     * @param String $codFamilia
-     * @return Array
+     * @param string $codFamilia
+     * @return array
      */
     public function getProductosFamilia($codFamilia){
         $codigos = array();
@@ -113,7 +113,7 @@ class Funciones{
         }catch (PDOException $e) {
             $codigos[0] = "<span style='background:yellow'>ERROR: ".$e->getCode()."</span>";
             $codigos[1] = "<span style='color:red'>".$e->getMessage()."</span>";
-			return $codigos;
+            return $codigos;
         }
         if (!isset($error)) {
             $sql = "SELECT cod FROM producto WHERE familia='".$codFamilia."'";
