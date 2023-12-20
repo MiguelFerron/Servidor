@@ -2,7 +2,7 @@
 /**
  * Desarrollo Web en Entorno Servidor
  * Tarea del tema 07
- * José Luis Comesaña Cabeza
+ * Miguel Ferron Viñuela
  */
 
 // Incluimos la lilbrería Xajax

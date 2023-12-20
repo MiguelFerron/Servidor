@@ -26,9 +26,9 @@ if (isset($_POST['enviar'])) {
 <!-- Tarea: Cesta de la compra con Xajax: login.php -->
 <html>
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Ejemplo Tema 5: Login Tienda Web</title>
-  <link href="tienda.css" rel="stylesheet" type="text/css">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>Ejemplo Tema 5: Login Tienda Web</title>
+<link href="tienda.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>

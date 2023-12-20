@@ -38,9 +38,9 @@ class CestaCompra {
     // Muestra el HTML de la cesta de la compra, con todos los productos
     public function muestra() {
        // Si la cesta está vacía, mostramos un mensaje
-       if (count($this->productos)==0)  print "<p>Cesta vacía</p>";
+    if (count($this->productos)==0)  print "<p>Cesta vacía</p>";
        //  y si no está vacía, mostramos su contenido
-       else foreach ($this->productos as $producto) $producto->muestra();
+    else foreach ($this->productos as $producto) $producto->muestra();
     }
     
 }
