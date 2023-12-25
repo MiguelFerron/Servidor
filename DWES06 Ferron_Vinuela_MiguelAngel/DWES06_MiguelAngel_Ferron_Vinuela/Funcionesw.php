@@ -16,7 +16,7 @@ class Funciones extends SoapClient {
    * @param string $wsdl
    * @param array $options
    */
-  public function __construct($wsdl = "http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela//serviciow.wsdl", $options = array()) {
+  public function __construct($wsdl = "http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela/serviciow.wsdl", $options = array()) {
     parent::__construct($wsdl, $options);
   } 
 
@@ -71,7 +71,7 @@ class Funciones extends SoapClient {
   /**
    * Obtiene las familias existentes.
    *
-   * @return Array
+   * @return array
    */
   public function getFamilias() {
     try {
@@ -93,7 +93,7 @@ class Funciones extends SoapClient {
    * Obtiene los códigos de los productos de la familia que se le indique.
    *
    * @param string $codFamilia
-   * @return Array
+   * @return array
    */
   public function getProductosFamilia($codFamilia) {
     try {

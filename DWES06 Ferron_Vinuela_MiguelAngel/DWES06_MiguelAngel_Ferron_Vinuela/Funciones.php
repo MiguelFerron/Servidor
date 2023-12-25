@@ -7,7 +7,7 @@
 * Tema 6: SERVICIOS WEB
 * Ejercicio: Funciones.php, fichero comentado para la creación 
 * automática de documento WSDL
-* @author: Miguel Ángel Ferrón VIñuela
+* @author: Miguel Ángel Ferrón Viñuela
 */
 class Funciones{
     /**

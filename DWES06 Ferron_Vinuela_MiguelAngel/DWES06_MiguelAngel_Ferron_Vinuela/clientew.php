@@ -2,7 +2,7 @@
     // Permitimos el uso de acentos y caracteres especiales
     header('Content-Type: text/html; charset=UTF-8');
     // creamos el objeto de cliente SOAP con nuestro fichero
-    $url = 'http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela/serviciow.php';
+    $url = 'http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela/servicio.php';
     $cliente = new SoapClient(null, array('location' => $url, 'uri' => 'http://127.0.0.1/servidor/DWES06_MiguelAngel_Ferron_Vinuela'));
         
     // Llamamos a la función que obtiene el precio del artículo que le pasemos
