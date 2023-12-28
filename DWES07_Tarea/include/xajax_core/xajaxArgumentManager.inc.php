@@ -228,26 +228,28 @@ final class xajaxArgumentManager
 		the argument data from the GET or POST data.
 	*/
 	private function __construct()
-	{
-		$this->aArgs = array();
-		$this->bDecodeUTF8Input = false;
-		$this->sCharacterEncoding = 'UTF-8';
-		$this->nMethod = XAJAX_METHOD_UNKNOWN;
-		
-		if (isset($_POST['xjxargs'])) {
-			$this->nMethod = XAJAX_METHOD_POST;
-			$this->aArgs = $_POST['xjxargs'];
-		} else if (isset($_GET['xjxargs'])) {
-			$this->nMethod = XAJAX_METHOD_GET;
-			$this->aArgs = $_GET['xjxargs'];
-		}
-		
-		if (!function_exists('get_magic_quotes_gpc') || !get_magic_quotes_gpc()) {
-		    array_walk($this->aArgs, array(&$this, '__argumentStripSlashes'));
-		}
+    {
+        $this->aArgs = array();
+        $this->bDecodeUTF8Input = false;
+        $this->sCharacterEncoding = 'UTF-8';
+        $this->nMethod = XAJAX_METHOD_UNKNOWN;
 
-		array_walk($this->aArgs, array(&$this, '__argumentDecode'));
-	}
+        // Utiliza filter_input para obtener los datos de forma segura
+        $postData = filter_input(INPUT_POST, 'xjxargs', FILTER_DEFAULT);
+        $getData = filter_input(INPUT_GET, 'xjxargs', FILTER_DEFAULT);
+
+        if ($postData !== null) {
+            $this->nMethod = XAJAX_METHOD_POST;
+            $this->aArgs = $postData;
+        } elseif ($getData !== null) {
+            $this->nMethod = XAJAX_METHOD_GET;
+            $this->aArgs = $getData;
+        }
+
+        // Elimina la comprobación de magic quotes ya que no es necesaria en PHP 7.4 y versiones posteriores
+        array_walk($this->aArgs, array($this, '__argumentStripSlashes'));
+        array_walk($this->aArgs, array($this, '__argumentDecode'));
+    }
 	
 	/*
 		Function: getInstance

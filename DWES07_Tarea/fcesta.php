@@ -4,11 +4,12 @@
  * Tarea del tema 07
  * Miguel Ferron Viñuela
  */
+//
 
-// Incluimos la lilbrería Xajax
+// Incluimos la librería Xajax
 require_once('include/xajax_core/xajax.inc.php');
 // Incluimos el fichero de acceso a la base de datos
-//require_once('DB.php');
+require_once('DB.php');
 // activamos el uso de variables de sesión
 session_start();
 // Creamos el objeto xajax
@@ -16,15 +17,19 @@ $xajax = new xajax('','xajax_','utf-8',true);
 //$xajax->debugOn();
 
 // Registramos las funciones que vamos a llamar desde JavaScript
-$xajax->register(XAJAX_FUNCTION,"anadirCesta");
-$xajax->register(XAJAX_FUNCTION,"vaciarCesta");
-$xajax->register(XAJAX_FUNCTION,"mostrarCesta");
+$xajax->register(XAJAX_FUNCTION,"anadeCesta");
+$xajax->register(XAJAX_FUNCTION,"vaciaCesta");
+$xajax->register(XAJAX_FUNCTION,"muestraCesta");
 
 // El método processRequest procesa las peticiones que llegan a la página
 $xajax->processRequest();
 
-// función para añadir productos a la cesta. Recibe el parámetro del código a añadir
-function anadirCesta($producto){
+/**
+ * Función para añadir productos a la cesta.
+ * @param string $producto - Código del producto a añadir.
+ * @return xajaxResponse - Objeto de respuesta xajax.
+ */
+function anadeCesta($producto){
 	// Creamos un objeto de respuesta xajax
 	$respuesta = new xajaxResponse();
 	// Indicamos el valor que retornará el objeto
@@ -33,8 +38,11 @@ function anadirCesta($producto){
 	return $respuesta;
 }
 
-// función para vaciar la cesta
-function vaciarCesta(){
+/**
+ * Función para vaciar la cesta.
+ * @return xajaxResponse - Objeto de respuesta xajax.
+ */
+function vaciaCesta(){
 	// creamos un objeto de respuesta xajax
 	$respuesta = new xajaxResponse();
 	// Indicamos que el objeto devolverá la palabra 'vaciar'.
@@ -46,8 +54,11 @@ function vaciarCesta(){
 	return $respuesta;
 }
 
-// función para mostrar el contenido de la cesta
-function mostrarCesta(){
+/**
+ * Función para mostrar el contenido de la cesta.
+ * @return xajaxResponse - Objeto de respuesta xajax.
+ */
+function muestraCesta(){
 	// creamos un objeto de respuesta xajax
 	$respuesta = new xajaxResponse();
 	// Si se muestra la cesta se inicializa el último artículo comprado

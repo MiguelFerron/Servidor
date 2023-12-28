@@ -103,7 +103,7 @@ function muestraCestaCompra($cesta) {
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <title>Ejemplo Tema 5: Listado de Productos</title>
+  <title>Ejemplo Tema 7: Listado de Productos</title>
   <link href="tienda.css" rel="stylesheet" type="text/css" />
     <!-- Llamamos al método que permite escribir todo el código xajax en el documento -->
     <?php $xajax->printJavascript(); ?>
